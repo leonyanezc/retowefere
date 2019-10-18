@@ -1,0 +1,68 @@
+body{
+    background: #eee;
+    display: flex;
+    justify-content: center;
+  }
+  .App{
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    width: 500px;
+    padding: 2em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  .App .loadingContainer{
+      position: absolute;
+      background: rgba(0,0,0,.3);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      display: none;
+  }
+  .App .loadingContainer .d-flex{
+    height: 100%;
+    align-items: center;
+    justify-content: center!important;
+  }
+  .App h1{
+    padding: 0;
+    text-align: center;
+    color: #777;
+    display: block;
+  }
+  .App p{
+    text-align: center;
+    color: #777;
+  }
+  .acceder{
+    margin-top: 1em;
+    cursor: pointer;
+  }
+  .App img{
+    width: 100px;
+    margin: auto;
+    display: block;
+  }
+  .event{
+      margin-bottom: 1em;
+  }
+  .event p {
+      text-align: left;
+  }
+  #appCalendar{
+      display: none
+  }
+  #hoursWorked{
+    font-weight: bold;
+  }
+  .disabled{
+    filter: blur(5px);
+    background: rgba(255, 0, 0,.2);
+    height: 30px;
+    overflow: hidden;
+  }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+      .app{
+        width: 300px;
+        margin: 2em auto;
+      }
+    </style>
+</head>
+<body>
+    <form class="app">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Video Id</label>
+          <input type="text" class="form-control" id="texto"  />
+      </div>
+      <div class="form-group">
+          <label for="exampleInputEmail1">Texto de Busqueda:</label>
+          <input type="text" class="form-control" id="busqueda"  />
+      </div>
+      <p id="demo"></p>
+      <div class="row">
+        <div id="buscar" class="btn btn-outline-success btn-block acceder">Buscar</div>
+      </div>
+    </form>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+      const id = document.getElementById("texto").value
+      const busqueda = document.getElementById("busqueda").value
+      const buscar = document.getElementById("buscar")
+      const demo = document.getElementById("demo")
+
+      buscar.addEventListener("click", () => {
+        demo.innerHTML = "Cargando...."
+        fetch(`http://localhost:3000/video/${id}/${busqueda}`)
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+          const template = `
+            <div><strong>Detected String: </strong> ${data.text}</div>
+            <div><strong>TimeStamp: </strong> ${data.Timestamp}</div>
+          `
+          demo.innerHTML = template
+        })
+            
+      })
+    </script>
+</body>
+</html>
